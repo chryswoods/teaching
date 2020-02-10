@@ -1,12 +1,17 @@
 
 # Regular Expressions in Python
 
+First, please download this file;
+
+* [soliloquy.txt](soliloquy.txt)
+
 You may already know how to read files and search for text by line number, word number, column
-number or by using `find` to search for specific text (if not, take a look [here](../beginning_python/searching.md)). 
+number or by using `find` to search for specific text. 
 This is all great, but it is not very flexible.
 
 For example, imagine searching for all surnames and titles from the below textâ€¦
 
+```
     Dear Mr. Johnson, 
       Dear Miss. Jameson,
     Dear   Ms.   Jackson, 
@@ -14,6 +19,7 @@ For example, imagine searching for all surnames and titles from the below textâ€
       Dear    Mr. Sampson
     Dear Dr.Johanson,
     Dear Rev Richardson,
+```
 
 How would you go about trying to write a program that can do this?
 
@@ -98,15 +104,14 @@ The fair Ophelia? Nymph, in thy Orisons
 Be all my sins remembered.
 ```
 
-Now, open up a new `ipython` session and type;
+You can find all lines containing `dream` by typing;
 
 ```python
-from __future__ import print_function
 import re
-lines = open("textfile", "r").readlines()
+lines = open("soliloquy.txt", "r").readlines()
 for line in lines:
     if re.search(r"dream", line):
-        print(line, end="")
+        print(line.strip())
 ```
 
 This will search for the lines that contain the word `dream` and will print them, e.g.
@@ -125,7 +130,7 @@ you use `re.IGNORECASE`, e.g. type;
 ```python
 for line in lines:
     if re.search(r"dream", line, re.IGNORECASE):
-        print line,
+        print(line.strip())
 ```
 
 and you will see;
@@ -142,7 +147,7 @@ do that using the special character `\s`, which means `space`, e.g.
 ```python
 for line in lines:
     if re.search(r"\sthe\s", line):
-        print(line,end="")
+        print(line.strip())
 ```
 
 will print
@@ -171,7 +176,7 @@ do this by using `\w` which means `any non-space character`, e.g. type;
 ```python
 for line in lines:
     if re.search(r"the\w", line):
-        print(line,end="")
+        print(line.strip())
 ```
 
 and you will see;
@@ -190,7 +195,7 @@ And combining these, together, find lines containing words that start with `the`
 ```python
 for line in lines:
    if re.search(r"\sthe\w", line):
-       print(line,end="")
+       print(line.strip())
 ```
 
 and you will see;
@@ -222,7 +227,7 @@ by `a`, `i` or `y`, you would use square brackets, and need to type;
 ```python
 for line in lines:
     if re.search(r"th[aiy]", line):
-        print(line,end="")
+        print(line.strip())
 ```
 
 You should see;
@@ -262,7 +267,7 @@ We can use this to find all lines that contain words with 10-12 characters, by t
 ```python
 for line in lines:
     if re.search(r"\w{10,12}", line):
-        print(line,end="")
+        print(line.strip())
 ```
 
 You should see;
@@ -283,7 +288,7 @@ of the line use a carat, `^`, e.g. type;
 ```python
 for line in lines:
     if re.search(r"^the\s", line, re.IGNORECASE):
-        print(line,end="")
+        print(line.strip())
 ```    
 
 will match `the` only at the beginning of the string, e.g. resulting in;
@@ -303,7 +308,7 @@ To match at the end of the line, using a dollar, `$`, e.g.
 ```python
 for line in lines:
     if re.search(r"on$", line):
-        print(line,end="")
+        print(line.strip())
 ```
 
 matches all lines that end in `on`, e.g.
@@ -390,7 +395,7 @@ For example, we could use this to extract all of the words that follow `the` in 
 for line in lines:
     m = re.search(r"\sthe\s(\w+)", line, re.IGNORECASE)
     if m:
-        print(line,end="")
+        print(line.strip())
         print(m.group(1))
 ```
 
@@ -428,7 +433,7 @@ text. You do this using `re.sub`. Type;
 
 ```python
 line = re.sub(r"be", "code", line)
-print(line)
+print(line.strip())
 ```
 
 You should now have printed;
@@ -443,7 +448,7 @@ that in as an extra argument. Try this by typing;
 ```python
 line = lines[0]
 line = re.sub(r"be", "code", line, 1)
-print(line)
+print(line.strip())
 ```
 
 and you should see;
@@ -459,7 +464,7 @@ We can add some logic to the replacement, e.g. replace `be` or `question` with `
 ```python
 line = lines[0]
 line = re.sub(r"be|question", "code", line)
-print(line)
+print(line.strip())
 ```
 
 and you will see
@@ -473,7 +478,7 @@ If you want to do a case-insensitive match, you need to compile the first string
 ```python
 line = lines[0]
 line = re.sub( re.compile(r"to be", re.IGNORECASE), "ice-cream", line )
-print(line)
+print(line.strip())
 ```
 
 This should print;
@@ -487,7 +492,7 @@ You can also nest `re.sub` calls together if you want to perform multiple substi
 ```python
 line = lines[0]
 line = re.sub( re.compile(r"to", re.IGNORECASE), "go", re.sub(r"be", "home", line) )
-print(line)
+print(line.strip())
 ```
 
 and you will get printed;
@@ -531,12 +536,10 @@ match each line, extracting the title and surname for each person?
 
 Note that you can match the `.` character using `\.`, e.g. to match `Dr.` use `re.search(r"Dr\.", line)`
 
-If you get stuck, an example output is [here](greetings.md)
+If you get stuck, an example output is [here](https://chryswoods.com/intermediate_python/greetings.html)
 
 ### Replacing
 
 Find all words that follow "the" in "textfile" (the Hamlet soliloquy) and replace them with "banana".
 
-If you get stuck, take a look at the example output [here](replace.md)
-
-# [Previous](testing.md) [Up](README.md) [Next](whatnext.md)
+If you get stuck, take a look at the example output [here](https://chryswoods.com/intermediate_python/replace.html)
