@@ -170,7 +170,7 @@ def print_info(person):
     print("================")
     print("This person is connected to")
 
-    for connection in connections:
+    for connection in connections[ID]:
         print(people[connection])
 
 print_info("Brunel")
@@ -210,8 +210,6 @@ for line in lines[1:]:
     bio = data[1].strip()
     bios[ID] = bio
 
-print(bios[find_person("Brunel")])
-
 lines = open("connections.csv").readlines()
 
 connections = {}
@@ -236,5 +234,20 @@ for line in lines[1:]:
     connections[ID_from].append(ID_to)
     connections[ID_to].append(ID_from)
 
-```
+def print_info(person):
+    ID = find_person(person)
 
+    if ID is None:
+        return
+
+    print(people[ID])
+    print("Biography:", bios[ID])
+    
+    print("================")
+    print("This person is connected to")
+
+    for connection in connections[ID]:
+        print(people[connection])
+
+print_info("Brunel")
+```
