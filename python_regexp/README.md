@@ -432,6 +432,7 @@ As well as using regular expressions for searching for text, you can also use it
 text. You do this using `re.sub`. Type;
 
 ```python
+line = lines[0]
 line = re.sub(r"be", "code", line)
 print(line.strip())
 ```
@@ -516,6 +517,12 @@ they will be completely unintelligable to everyone else who looks at or relies o
 
 ## Exercise
 
+### Replacing
+
+Find all words that follow "the" in "textfile" (the Hamlet soliloquy) and replace them with "banana".
+
+If you get stuck, take a look at the example output [here](https://chryswoods.com/intermediate_python/replace.html)
+
 ### Matching
 
 Here is the list of surnames from above. Copy and paste these
@@ -537,9 +544,3 @@ match each line, extracting the title and surname for each person?
 Note that you can match the `.` character using `\.`, e.g. to match `Dr.` use `re.search(r"Dr\.", line)`
 
 If you get stuck, an example output is [here](https://chryswoods.com/intermediate_python/greetings.html)
-
-### Replacing
-
-Find all words that follow "the" in "textfile" (the Hamlet soliloquy) and replace them with "banana".
-
-If you get stuck, take a look at the example output [here](https://chryswoods.com/intermediate_python/replace.html)
