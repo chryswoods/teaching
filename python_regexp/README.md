@@ -3,7 +3,7 @@
 
 First, please download this file;
 
-* [soliloquy.txt](soliloquy.txt)
+* [soliloquy.txt](https://raw.githubusercontent.com/chryswoods/teaching/master/python_regexp/soliloquy.txt)
 
 You may already know how to read files and search for text by line number, word number, column
 number or by using `find` to search for specific text. 
