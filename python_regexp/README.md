@@ -517,6 +517,8 @@ they will be completely unintelligable to everyone else who looks at or relies o
 
 ## Exercise
 
+[You can dynamically test a regular expression here](https://regex101.com)
+
 ### Replacing
 
 Find all words that follow "the" in "textfile" (the Hamlet soliloquy) and replace them with "banana".
