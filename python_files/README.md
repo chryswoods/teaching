@@ -2,9 +2,9 @@
 
 You need to download these data files
 
-* [people.csv](people.csv)
-* [biographies.tsv](biographies.tsv)
-* [connections.csv](connections.csv)
+* [people.csv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/people.csv)
+* [biographies.tsv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/biographies.tsv)
+* [connections.csv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/connections.csv)
 
 ## Reading a file
 
