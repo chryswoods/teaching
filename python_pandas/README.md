@@ -1,10 +1,10 @@
-# Python Files
+# Python Pandas
 
 You need to download these data files
 
 * [people.csv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/people.csv)
 * [biographies.tsv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/biographies.tsv)
-* [connections.csv](https://raw.githubusercontent.com/chryswoods/teaching/master/python_files/connections.csv)
+* [invested.xlsx](https://raw.githubusercontent.com/chryswoods/teaching/master/python_pandas/invested.xlsx)
 
 ## Importing pandas
 
@@ -19,7 +19,7 @@ import pandas as pd
 
 This loads the pandas library, and makes it accessible via `pd`
 
-## Reading csv files
+## Reading csv files
 
 Read a csv file using
 
@@ -351,7 +351,7 @@ df[ df["Affiliations"].str.contains("GWR") ]["Invested"].sum()
 We can print the total invested by each affiliation using
 
 ```python
-for affiliation in ["B&A", "BCC", "BDC", "GWR", "RN"]:
+for affiliation in ["B&A", "BCC", "BDC", "GWR", "RN", "SMV"]:
     print(affiliation, df[ df["Affiliations"].str.contains(affiliation) ]["Invested"].sum())
 ```
 
@@ -360,12 +360,15 @@ And we can graph this by placing the data into a new pandas dataframe, e.g.
 ```python
 data = {"Affiliation": [], "Invested": []}
 
-for affiliation in ["B&A", "BCC", "BDC", "GWR", "RN"]:
+for affiliation in ["B&A", "BCC", "BDC", "GWR", "RN", "SMV"]:
     data["Affiliation"].append(affiliation)
     data["Invested"].append(df[ df["Affiliations"].str.contains(affiliation) ]["Invested"].sum())
+
+pd.DataFrame(data).plot.bar(x="Affiliation", y="Invested")
 ```
 
 ## Conclusion
 
-[This notebook brings all of the above together](somewhere)
+[This notebook brings all of the above together](https://raw.githubusercontent.com/chryswoods/teaching/master/python_pandas/lesson.ipynb)
+
 
