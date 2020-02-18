@@ -149,7 +149,7 @@ brunel = find_person("Brunel")
 print(people[brunel], "is connected to")
 
 for connection in connections[brunel]:
-    print(connections[connection])
+    print(people[connection])
 ```
 
 ## Putting it all together...
