@@ -4,6 +4,7 @@ Short coding lessons
 
 * [Python Files](python_files/README.md)
 * [Python Regular Expressions](python_regexp/README.md)
+* [Python Pandas](python_pandas/README.md)
 
 ## Longer lessons
 
